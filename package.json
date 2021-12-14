@@ -1,0 +1,12 @@
+{
+  "name": "vanilajs",
+  "version": "1.0.0",
+  "description": "* Vanila JS학습을 위한 Vanila JS로 이루어진 프로젝트들을 담고 있는 레포입니다.",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

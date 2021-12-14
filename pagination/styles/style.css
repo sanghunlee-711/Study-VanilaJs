@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.current-page {
+  color: red;
+}
