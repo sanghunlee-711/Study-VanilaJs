@@ -15,6 +15,6 @@ const repeat = (elementFactory, number) => {
 
 export default () => {
   const howMany = faker.random.number(10);
-  console.log(howMany);
+
   return repeat(createElement, howMany);
 };
