@@ -9,8 +9,8 @@
 // 다음렌더링 대기 -> 새 가상 노드
 // 새 가상노드 -> DOM조작 (여기서 replaceNode)
 // DOM조작 -> 브라우저렌더링
-import getTodos from './getTodos.js';
-import view from './view.js';
+import getTodos from './api/getTodos.js';
+import appView from './view/app.js';
 
 const state = {
   todos: getTodos(),
@@ -20,8 +20,6 @@ const state = {
 const main = document.querySelector('.todoapp');
 
 window.requestAnimationFrame(() => {
-  const newMain = view(main, state);
+  const newMain = appView(main, state);
   main.replaceWith(newMain);
 });
-
-console.log('@@@@', view);
