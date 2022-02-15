@@ -10,7 +10,14 @@
 // 새 가상노드 -> DOM조작 (여기서 replaceNode)
 // DOM조작 -> 브라우저렌더링
 import getTodos from './api/getTodos.js';
-import appView from './view/app.js';
+import registry from './registry.js';
+import counterView from './view/counter.js';
+import filtersView from './view/filters.js';
+import todosView from './view/todos.js';
+
+registry.add('todos', todosView);
+registry.add('counter', counterView);
+registry.add('filters', filtersView);
 
 const state = {
   todos: getTodos(),
@@ -20,6 +27,10 @@ const state = {
 const main = document.querySelector('.todoapp');
 
 window.requestAnimationFrame(() => {
-  const newMain = appView(main, state);
+  const main = document.querySelector('.todoapp');
+  const newMain = registry.renderRoot(main, state);
+  // const newMain = appView(main, state); // 기존 app.js에서 임의로 클래스명을 통해 매칭하는 것이아님
+  // data-component속성을 통해서 registry의 고차함수를 통해 매핑해줌
+
   main.replaceWith(newMain);
 });
