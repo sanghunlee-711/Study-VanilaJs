@@ -22,11 +22,13 @@
       <label for="toggle-all">
         Mark all as complete
       </label>
-      <ul class="todo-list"></ul>
+      <!--  아래 html 태그의 data-component 속성은  html 의 data-attributes속성을 통해  뷰 함수의 필수 호출을 대체하기 위해 사용 됨. -->
+      <!-- registry.js에서 구성요소를 래핑하는 고차함수를 통해 연결 되게 됨. -->
+      <ul class="todo-list" data-component="todos"></ul>
     </section>
     <footer class="footer">
-      <span class="todo-count"></span>
-      <ul class="filters">
+      <span class="todo-count" data-component="counter"></span>
+      <ul class="filters" data-component="filters">
         <li>
           <a href="#/">All</a>
         </li>
