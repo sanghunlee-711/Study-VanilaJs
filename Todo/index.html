@@ -1,50 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-common@1.0.5/base.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/todomvc-app-css@2.1.2/index.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.js"></script>
-  <title>Vanila Todo</title>
+  <title>Mission 2</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 
 <body>
-  <section class="todoapp">
-    <div class="header">
-      <h1>Todos</h1>
-      <input type="text" class="new-todo" placeholder="할 일을 작성해보세요" autofocus="">
-    </div>
-    <section class="main">
-      <input type="text" id="toggle-all" class="toggle-all" type="checkbox">
-      <label for="toggle-all">
-        Mark all as complete
-      </label>
-      <!--  아래 html 태그의 data-component 속성은  html 의 data-attributes속성을 통해  뷰 함수의 필수 호출을 대체하기 위해 사용 됨. -->
-      <!-- registry.js에서 구성요소를 래핑하는 고차함수를 통해 연결 되게 됨. -->
-      <ul class="todo-list" data-component="todos"></ul>
-    </section>
-    <footer class="footer">
-      <span class="todo-count" data-component="counter"></span>
-      <ul class="filters" data-component="filters">
-        <li>
-          <a href="#/">All</a>
-        </li>
-        <li>
-          <a href="#/">Active</a>
-        </li>
-        <li>
-          <a href="#/completed">Completed</a>
-        </li>
-      </ul>
-    </footer>
-  </section>
-  <footer class="info">
-    <p>수정을 위해 연속클릭해주세요.</p>
-  </footer>
-  <script type="module" src="./src/index.js"></script>
+  <div class="wrapper">
+  </div>
+  <script type="module" src="index.js"></script>
 </body>
 
 </html>
