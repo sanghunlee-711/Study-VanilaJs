@@ -1,12 +1,12 @@
-.wrapper{
+.wrapper {
   width: fit-content;
   margin: auto;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.list-wrapper{
+.list-wrapper {
   padding: 0px;
   margin: 32px 0px;
   height: 35vh;
@@ -21,15 +21,13 @@
   overflow: hidden;
 }
 
-.check-btn{
+.check-btn {
   width: 18px;
   height: 18px;
 }
 
-.countWrapper{
-  display:flex;
-  
+.countWrapper {
+  display: flex;
 }
 .todo-list {
-
 }
