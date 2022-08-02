@@ -25,7 +25,6 @@ const testData = [
   },
 ];
 try {
-  const data = ['React', 'Vue', 'Angular', 'Remix', 'Svelte'];
   const app = new App({
     $target: document.querySelector('#root'),
     initialData: testData,

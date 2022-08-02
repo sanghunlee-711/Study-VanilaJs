@@ -1,8 +1,5 @@
-import Column from './components/Column.js';
-import Container from './components/Container.js';
-
-const CONATINER_MAP = ['In Progress', 'Paused', 'Under Review', 'Completed'];
-
+import Columns from './components/Columns.js';
+import { CONATINER_MAP } from './constants/index.js';
 const App = function ({ $target, initialData }) {
   this.data = initialData;
   this.$target = $target;
@@ -19,15 +16,9 @@ const App = function ({ $target, initialData }) {
         return el;
       }
     });
-    console.log('new DAta', newData);
 
     this.data = newData;
-
-    allTaskColumn.setState(this.data);
-    inProgresscolumn.setState(this.data);
-    pausedColumn.setState(this.data);
-    underReviewColumn.setState(this.data);
-    completedColumn.setState(this.data);
+    columns.setState(this.data);
   };
 
   this.setDragTarget = ({ value, step }) => {
@@ -35,7 +26,7 @@ const App = function ({ $target, initialData }) {
   };
 
   this.onDrag = (e) => {
-    console.log('onDrag!', e.target.dataset);
+    if (e.target.className !== 'item') return;
     this.dragTarget = {
       value: e.target.textContent,
       step: e.target.dataset.id,
@@ -43,57 +34,20 @@ const App = function ({ $target, initialData }) {
   };
 
   this.onDrop = (e) => {
-    const step = e.target.closest('ul').dataset.id;
+    const dropStep = e.target.closest('ul').dataset.id;
     //step이 유효한 값이면 업데이트하깅(현재랑 다르고 스텝 배열안에 값이 있는경우)
 
-    if (step === this.dragTarget.step) return;
+    if (dropStep === this.dragTarget.step || !CONATINER_MAP.includes(dropStep))
+      return;
     this.handleListState({
       value: this.dragTarget.value,
-      step,
+      step: dropStep,
     });
   };
 
-  const container = new Container({
+  const columns = new Columns({
     $target: this.$target,
-  });
-
-  const containerTarget = document.querySelector('.container');
-
-  const allTaskColumn = new Column({
-    initialTitle: 'All Tasks',
-    $target: containerTarget,
-    data: this.data,
-    onDrag: this.onDrag,
-    onDrop: this.onDrop,
-  });
-
-  const inProgresscolumn = new Column({
-    initialTitle: 'In Progress',
-    $target: containerTarget,
-    data: this.data,
-
-    onDrag: this.onDrag,
-    onDrop: this.onDrop,
-  });
-  const pausedColumn = new Column({
-    initialTitle: 'Paused',
-    $target: containerTarget,
-    data: this.data,
-    onDrag: this.onDrag,
-    onDrop: this.onDrop,
-  });
-
-  const underReviewColumn = new Column({
-    initialTitle: 'Under Review',
-    $target: containerTarget,
-    data: this.data,
-    onDrag: this.onDrag,
-    onDrop: this.onDrop,
-  });
-
-  const completedColumn = new Column({
-    initialTitle: 'Completed',
-    $target: containerTarget,
+    titleArr: CONATINER_MAP,
     data: this.data,
     onDrag: this.onDrag,
     onDrop: this.onDrop,
