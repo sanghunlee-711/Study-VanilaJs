@@ -1,6 +1,6 @@
 const POST_MAP = [
-  { id: 1, content: 'POST 1' },
-  { id: 2, content: 'POST 2' },
+  { id: 1, content: 'Content 1' },
+  { id: 2, content: 'Content 2' },
 ];
 
 const Post = function ({ $target }) {
