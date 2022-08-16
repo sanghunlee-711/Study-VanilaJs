@@ -1,14 +1,14 @@
 import { ROUTES } from './contants/index.js';
 function renderHTML(el, Component) {
-  document.querySelector('.layout-container').innerHTML = '';
+  el.innerHTML = '';
   if (Component.name === 'Content') {
     new Component({
-      $target: document.querySelector('.layout-container'),
+      $target: el,
       contentId: getContentId(),
     });
   } else {
     new Component({
-      $target: document.querySelector('.layout-container'),
+      $target: el,
     });
   }
 }
@@ -28,21 +28,24 @@ function getHashRoute() {
     const hashLocation = window.location.hash;
 
     if (getContentId()) {
-      return ROUTES.filter((el) => el.name === 'Content')[0].components;
+      route = ROUTES.filter((el) => el.name === 'Content')[0].components;
+      return route;
     }
 
-    if (hashLocation === hashRoute.path) route = hashRoute.components;
+    if (hashLocation === hashRoute.path) {
+      route = hashRoute.components;
+    }
   });
   return route;
 }
 
-export function initialRoutes(el) {
+export function initialRoutes({ el }) {
   renderHTML(el, ROUTES[0].components);
 
   window.addEventListener('hashchange', () => {
     return renderHTML(el, getHashRoute());
   });
   window.onload = () => {
-    renderHTML(null, getHashRoute());
+    renderHTML(el, getHashRoute());
   };
 }

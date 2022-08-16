@@ -6,7 +6,8 @@ const App = function ({ $target }) {
 
   const nav = new Nav({ $target: this.$target });
   const layoutContainer = new Layout({ $target: this.$target });
-  initialRoutes();
+
+  initialRoutes({ el: document.querySelector('.layout-container') });
 };
 
 export default App;
