@@ -35,10 +35,8 @@ const App = function ({ $target, initialData }) {
 
   this.onChange = (e) => {
     if (e.target.className !== 'add-input') return;
-    if (e.code === 'Enter') {
-      console.log('??..');
-      this.onAdd(e);
-    }
+    if (e.code === 'Enter') this.onAdd(e);
+
     this.setTextState(e.target.value);
   };
 
