@@ -1,4 +1,5 @@
 import About from '../pages/About.js';
+import Content from '../pages/Content.js';
 import Home from '../pages/Home.js';
 import Post from '../pages/Post.js';
 
@@ -17,5 +18,10 @@ export const ROUTES = [
     path: '#post',
     name: 'Post',
     components: Post,
+  },
+  {
+    path: '#contentId=:id',
+    name: 'Content',
+    components: Content,
   },
 ];

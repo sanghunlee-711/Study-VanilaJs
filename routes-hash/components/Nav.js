@@ -9,13 +9,15 @@ const Nav = function ({ $target }) {
   this.render = () => {
     wrapper.innerHTML = `
       <ul>
-        ${ROUTES.map((el) => {
-          return `
+        ${ROUTES.filter((el) => el.name !== 'Content')
+          .map((el) => {
+            return `
             <li>
               <a href = "${el.path}">${el.name}</a>
             </li>
           `;
-        }).join('')}
+          })
+          .join('')}
       </ul>
     `;
   };
